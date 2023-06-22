@@ -1,7 +1,7 @@
 # hackerRank
 
 ## Sobre o projeto
-Este é um projeto com os meus códigos de resolução do [Hacker](https://www.hackerrank.com/). Os desafios são muito legais!
+Este é um projeto com os meus códigos de resolução do [HackerRank](https://www.hackerrank.com/). Os desafios são muito legais!
 
 ## Tecnologias utilizadas
 - Java
