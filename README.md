@@ -6,18 +6,17 @@ Este é um projeto com os meus códigos de resolução do [HackerRank](https://w
 ## Tecnologias utilizadas
 - Java
 
-## Como executar o projeto
-Pré-requisitos: Java 8
+## Requisitos para execução
+- Java 8
+- Eclipse (ou seu editor preferido)
 
 ```bash
 # clonar repositório
 git clone https://github.com/mguedesmelo/hackerRank
 
-# entrar na pasta back end do projeto
-cd hackerRank
-
 # acessar a aplicação
-Execute o metodo main da classe de cada desafio
+- Importe o projeto no Eclipse
+- Execute o metodo main da classe de cada desafio
 ```
 
 # Autor
