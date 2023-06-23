@@ -39,8 +39,7 @@ public class GridChallenge {
 	public static void main(String[] args) {
 		System.out.println(ResultGridChallenge.gridChallenge(Arrays.asList("abc", "ade", "efg")));
 		
-		System.out.println(ResultGridChallenge.gridChallenge(Arrays.asList("abcde", "fghij", 
-				"klmno", "pqrst", "uvwxy")));
+		System.out.println(ResultGridChallenge.gridChallenge(Arrays.asList("abcde", "fghij", "klmno", "pqrst", "uvwxy")));
 	}
 
     public static void mainHackerRank(String[] args) throws IOException {
