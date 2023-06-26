@@ -51,7 +51,6 @@ public class GridChallenge {
         IntStream.range(0, t).forEach(tItr -> {
             try {
                 int n = Integer.parseInt(bufferedReader.readLine().trim());
-
                 List<String> grid = IntStream.range(0, n).mapToObj(i -> {
                     try {
                         return bufferedReader.readLine();
