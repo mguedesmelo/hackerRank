@@ -1,11 +1,20 @@
 package com.hackerRank.oneWeek.day.one;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class MockTest {
 	public static void main(String[] args) {
 		fizzBuzz(15);
+		
+		List<Integer> arr = new ArrayList<Integer>(0);
+		arr.add(1);
+		arr.add(2);
+		arr.add(3);
+		arr.add(4);
+		arr.add(5);
+		System.out.println(findMedian(arr) == 3);
 	}
 	
     public static int findMedian(List<Integer> arr) {
