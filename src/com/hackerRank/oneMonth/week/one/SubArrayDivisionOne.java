@@ -8,6 +8,10 @@ public class SubArrayDivisionOne {
         for (int i = 0; i < s.size(); i++) {
             int sum = 0;
             for (int j = i; j < m + i; j++) {
+                if (j == s.size()) {
+                    break;
+                }
+
                 sum = sum + s.get(j);
             }
             if (sum == d) {
