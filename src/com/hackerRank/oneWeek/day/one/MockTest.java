@@ -30,30 +30,26 @@ public class MockTest {
      */
     public static void fizzBuzz(int n) {
         for (int i = 1; i <= n; i++) {
-            doFizzBuzz(i);
-        }
-    }
-    
-    private static void doFizzBuzz(int n) {
-        int sumDigits = sumDigits(String.valueOf(n));
-        boolean isDivByThree = (sumDigits % 3 == 0);
-        boolean isDivByFive = ((n % 5 == 0) || (n % 5 == 5));
+        	int sumDigits = sumDigits(String.valueOf(i));
+            boolean isDivByThree = (sumDigits % 3 == 0);
+            boolean isDivByFive = ((i % 5 == 0) || (i % 5 == 5));
 
-        if (isDivByThree && isDivByFive) {
-            System.out.println("FizzBuzz");
-            return;
+            if (isDivByThree && isDivByFive) {
+                System.out.println("FizzBuzz");
+                return;
+            }
+            if (!isDivByThree && !isDivByFive) {
+                System.out.println(i);
+                return;
+            }
+            if (isDivByThree && !isDivByFive) {
+                System.out.println("Fizz");
+                return;
+            } 
+            if (!isDivByThree && isDivByFive) {
+                System.out.println("Buzz");
+            }
         }
-        if (!isDivByThree && !isDivByFive) {
-            System.out.println(n);
-            return;
-        }
-        if (isDivByThree && !isDivByFive) {
-            System.out.println("Fizz");
-            return;
-        } 
-        if (!isDivByThree && isDivByFive) {
-            System.out.println("Buzz");
-        } 
     }
 
     private static int sumDigits(String num) {
