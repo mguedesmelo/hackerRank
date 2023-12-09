@@ -5,23 +5,23 @@ import java.util.Scanner;
 public class LegoBlocks {
 	static final int MAX = 1001;
 	static final int MODULE = 1000000000 + 7;
-	
-	public static int moduleMult(int x, int y) {
+
+	private static int moduleMult(int x, int y) {
 		int tempX = x > MODULE ? x % MODULE : x;
 		int tempy = y > MODULE ? y % MODULE : y;
-		int tempResult = (tempX) * (tempy);
+		int toReturn = (tempX) * (tempy);
 
-		return tempResult > MODULE ? (tempResult) % MODULE : tempResult;
+		return toReturn > MODULE ? (toReturn) % MODULE : toReturn;
 	}
 
-	public static int getModulePowerOf2(int N) {
-		int result = 2;
+	private static int getModulePowerOf2(int N) {
+		int toReturn = 2;
 		for (int i = 1; i <= N - 1; i++) {
-			result = result % MODULE;
-			result = result << 1;
+			toReturn = toReturn % MODULE;
+			toReturn = toReturn << 1;
 		}
 
-		return result;
+		return toReturn;
 	}
 
 	public static int legoBlocks(int n, int m) {
