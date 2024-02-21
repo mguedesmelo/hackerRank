@@ -1,5 +1,8 @@
 package com.hackerRank.oneMonth.week.two;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
@@ -9,111 +12,33 @@ public class PrimeDates {
 	public static void main(String[] args) throws java.lang.Exception {
 		Scanner in = new Scanner(System.in);
 
-		month = new int[15];
-
 		String s = in.nextLine();
-
-		StringTokenizer str = new StringTokenizer(s, "- ");
-
-		int d1 = Integer.parseInt(str.nextToken());
-		int m1 = Integer.parseInt(str.nextToken());
-		int y1 = Integer.parseInt(str.nextToken());
-		int d2 = Integer.parseInt(str.nextToken());
-		int m2 = Integer.parseInt(str.nextToken());
-		int y2 = Integer.parseInt(str.nextToken());
-
-		int result = findPrimeDates(d1, m1, y1, d2, m2, y2);
-		System.out.println(result);
 		
-		in.close();
-	}
+		StringTokenizer str = new StringTokenizer(s, " ");
+		String d1 = str.nextToken().trim();
+		String d2 = str.nextToken().trim();
 
-	public static void updateLeapYear(int year) {
-        /*
-        if (year % 400 == 0) {
-            month[2] = 28;
-        } else if (year % 100 == 0) {
-            month[2] = 29;
-        } else if (year % 4 == 0) {
-            month[2] = 29;
-        } else {
-            month[2] = 28;
-        }
-        */
-		if (year % 400 == 0) {
-			month[2] = 29;
-		} else if (year % 100 == 0) {
-			month[2] = 28;
-		} else if (year % 4 == 0) {
-			month[2] = 29;
-		} else {
-			month[2] = 28;
-		}
-	}
+		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+		Date firstDate = formatter.parse(d1);
+		Date secondDate = formatter.parse(d2);
 
-	public static void storeMonth() {
-		month[1] = 31;
-		month[2] = 28;
-		month[3] = 31;
-		month[4] = 30;
-		month[5] = 31;
-		month[6] = 30;
-		month[7] = 31;
-		month[8] = 31;
-		month[9] = 30;
-		month[10] = 31;
-		month[11] = 30;
-		month[12] = 31;
-	}
-
-	public static int findPrimeDates(int d1, int m1, int y1, int d2, int m2, int y2) {
-//        storeMonth();
-//        int result = 0;
-//        while (true) {
-//            int x = d1;
-//            x = x * 100 + m1;
-//            x = x * 1000 + y1;  // AQUI
-//            if (x % 4 == 0 && x % 7 == 0) {  // AQUI
-//                result = result + 1;
-//            }
-//            if (d1 == d2 && m1 == m2 && y1 == y2) {
-//                break;
-//            }
-//            updateLeapYear(y1);
-//            d1 = d1 + 1;
-//            if (d1 > month[m1]) {
-//                m1 = m1 + 1;
-//                d1 = 1;
-//                if (m1 > 12) {
-//                    y1 =  y1 + 1;
-//                    m1 = m1 + 1;  // AQUI
-//                }
-//            }
-//        }
-//        return result;
-		storeMonth();
 		int result = 0;
+		Calendar c = Calendar.getInstance();
+		SimpleDateFormat formatterLeadingZeroes = new SimpleDateFormat("dMMyyyy");
 		while (true) {
-			int x = d1;
-			x = x * 100 + m1;
-			x = x * 10000 + y1;
-			if (x % 4 == 0 || x % 7 == 0) {
-				result = result + 1;
+			int value = Integer.parseInt(formatterLeadingZeroes.format(firstDate));
+			if (value % 4 == 0 || value % 7 == 0) {
+				result++;
 			}
-			if (d1 == d2 && m1 == m2 && y1 == y2) {
+			c.setTime(firstDate);
+			c.add(Calendar.DATE, 1);
+			firstDate = c.getTime();
+			if (firstDate.after(secondDate)) {
 				break;
 			}
-			updateLeapYear(y1);
-			d1 = d1 + 1;
-			if (d1 > month[m1]) {
-				m1 = m1 + 1;
-				d1 = 1;
-				if (m1 > 12) {
-					y1 = y1 + 1;
-					m1 = 1;
-				}
-			}
 		}
-		return result;
+		System.out.println(result);
+//		02-08-2025 04-09-2025
+		in.close();
 	}
 }
