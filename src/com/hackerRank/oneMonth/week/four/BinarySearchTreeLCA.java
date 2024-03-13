@@ -6,7 +6,7 @@ public class BinarySearchTreeLCA {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		int t = scanner.nextInt();
-		Node root = null;
+		NodeLca root = null;
 		while (t-- > 0) {
 			int data = scanner.nextInt();
 			root = insert(root, data);
@@ -14,15 +14,15 @@ public class BinarySearchTreeLCA {
 		int v1 = scanner.nextInt();
 		int v2 = scanner.nextInt();
 		scanner.close();
-		Node ans = lca(root, v1, v2);
+		NodeLca ans = lca(root, v1, v2);
 		System.out.println(ans.data);
 	}
 
-	private static Node insert(Node root, int data) {
+	private static NodeLca insert(NodeLca root, int data) {
 		if (root == null) {
-			return new Node(data);
+			return new NodeLca(data);
 		} else {
-			Node current;
+			NodeLca current;
 			if (data <= root.data) {
 				current = insert(root.left, data);
 				root.left = current;
@@ -34,7 +34,7 @@ public class BinarySearchTreeLCA {
 		}
 	}
 
-	private static Node lca(Node root, int v1, int v2) {
+	private static NodeLca lca(NodeLca root, int v1, int v2) {
 		// Decide if call recursively
 		
 		// Smaller than both
@@ -50,12 +50,12 @@ public class BinarySearchTreeLCA {
 	}
 }
 
-class Node {
-	Node left;
-	Node right;
+class NodeLca {
+	NodeLca left;
+	NodeLca right;
 	int data;
 
-	Node(int data) {
+	NodeLca(int data) {
 		this.data = data;
 		left = null;
 		right = null;
